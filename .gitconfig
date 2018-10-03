@@ -1,0 +1,25 @@
+[user]
+	name = Maciej Stanek
+	email = makaron28@gmail.com
+[alias]
+	a = add
+	c = commit
+  o = checkout
+	p = push
+	s = status
+	d = diff
+	g = grep
+	r = reset
+	l = log
+	b = branch
+  l1 = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+  ls = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+  ll = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+[color]
+  ui = auto
+[gui]
+  fontui = -family fixed -size 13 -weight bold -slant roman -underline 0 -overstrike 0
+  fontdiff = -family Courier -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+  diffcontext = 7
+[push]
+  default = simple

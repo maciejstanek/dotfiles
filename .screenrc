@@ -1,0 +1,49 @@
+# Colors settings
+attrcolor b '.I'
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+
+# Make Vim flush corretly after suspending or closing
+altscreen on
+
+# Main bottom status bar
+hardstatus alwayslastline
+hardstatus string '%{= yk} %H %{= Ky} %{= kw}%=%{= Ky} %-w%{= yk} %n*%t%? %{= Ky}%+w %{= kw}%=%{= Ky} %{= yk} %c '
+msgminwait 1
+msgwait 1
+
+# Windows borders
+sorendition '= kw'
+caption splitonly
+caption string '%{= kw}%=%{= Ky}%?%F %{= yk}%? %n %t %?%F%{= Ky} %?%{= kw}%='
+
+# screen -t 'G'
+# select 3
+# stuff "cd /var ^M^Lls^M"
+# select 0
+
+# MATRIX PANES
+# split -v
+# split -v
+# screen -t _
+# resize 6
+# focus right
+# screen -t mstanek bash
+# focus right
+# screen -t _
+# resize 6
+# stuff "cmatrix -b^M"
+# focus left
+# focus left
+# stuff "cmatrix -b^M"
+# focus right
+
+# Misc
+defscrollback 20000
+startup_message off
+vbell off
+
+bind = resize =
+bind + resize +1
+bind - resize -1
+bind _ resize max
