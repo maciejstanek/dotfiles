@@ -1,0 +1,11 @@
+/*
+!.vim
+/.vim/plugged
+/.vim/spell
+/.vim/autoload/plug.vim
+!.vimrc
+!.bashrc
+!.gitconfig
+!.screenrc
+!.dir_colors
+!.gitignore
