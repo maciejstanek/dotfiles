@@ -1,6 +1,6 @@
-if [[ $HOSTNAME = sts* ]]; then
+if [[ $HOSTNAME == sts* ]]; then
   if [[ -z $STARTED_SCREEN ]] && [[ -n $SSH_TTY ]]; then
-    if [[ $- = *i* ]]; then
+    if [[ $- == *i* ]]; then
       STARTED_SCREEN=1; export STARTED_SCREEN
       screen -RR -S ssh || echo >&2 "Screen failed! continuing with normal bash startup"
     fi
