@@ -20,6 +20,20 @@ set ls=2
 syntax enable 
 autocmd FileType diff map <F3> :next<CR>
 autocmd FileType diff map <S-F3> :prev<CR>
+autocmd FileType tex set wrap
+autocmd FileType tex setlocal spell spelllang=en,pl
+
+"autocmd BufNewFile,BufRead *.py set tabstop=2 noexpandtab shiftwidth=2 softtabstop=2 foldmethod=indent foldlevel=99
+autocmd BufNewFile,BufRead *.py set tabstop=4 expandtab shiftwidth=4 softtabstop=4 foldmethod=indent
+"autocmd BufNewFile,BufRead *.py set tabstop=2 expandtab shiftwidth=2 softtabstop=2 foldmethod=indent
+autocmd BufNewFile,BufRead *.tsv set tabstop=12 noexpandtab shiftwidth=12 softtabstop=12
+autocmd BufNewFile,BufRead *.TSV set tabstop=12 noexpandtab shiftwidth=12 softtabstop=12
+autocmd BufNewFile,BufRead *.cpp set foldmethod=indent foldlevel=99
+autocmd BufNewFile,BufRead *.cxx set foldmethod=indent foldlevel=99
+autocmd BufNewFile,BufRead *.c set foldmethod=indent foldlevel=99
+autocmd BufNewFile,BufRead *.hpp set foldmethod=indent foldlevel=99
+autocmd BufNewFile,BufRead *.hxx set foldmethod=indent foldlevel=99
+autocmd BufNewFile,BufRead *.h set foldmethod=indent foldlevel=99
 set bs=2
 set hlsearch
 syntax on
@@ -41,6 +55,9 @@ endfunction
 
 setlocal spell spelllang=en_us
 set nospell
+
+au BufNewFile,BufRead *.launch set filetype=xml
+au BufNewFile,BufRead *.do set filetype=tcl
 
 map <F1> <nop>
 map <F1><F1> :set list! list?<CR>
@@ -73,20 +90,21 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'Shougo/neocomplete.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'itchyny/lightline.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'scrooloose/nerdtree'
 Plug 'sickill/vim-monokai'
+Plug 'sirtaj/vim-openscad'
 Plug 'taku-o/vim-toggle'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/ifdef-highlighting'
-Plug 'scrooloose/nerdtree'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'chrisbra/Colorizer'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'easymotion/vim-easymotion'
-Plug 'pboettch/vim-cmake-syntax'
 call plug#end()
 
 colorscheme jellybeans
