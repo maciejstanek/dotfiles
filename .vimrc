@@ -78,13 +78,17 @@ map <F9> :set syn=cpp<CR>
 map <F10> :set syn=tcl<CR>
 map <F11> :set syn=json<CR>
 
-if !filereadable(expand("~/.vim/autoload/plug.vim"))
-  echoe "Missing 'plug.vim'. Attempting to download it."
-  echom system("curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+let plug_path = "~/.vim/autoload/plug.vim" 
+if !filereadable(expand(plug_path))
+  echo "Missing 'plug.vim'. Attempting to download it."
+  let plug_url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" 
+  let plug_cmd = "curl -fLo " . plug_path . " --create-dirs " . plug_url
+  let plug_result = system(plug_cmd)
   if v:shell_error
-    echoe "Executing 'curl' failed. Is 'curl' installed?"
+    echo "Executing 'curl' failed. Is 'curl' installed?"
+    exit
   else
-    echom "Successfully downloaded 'plug.vim'."
+    echo "Successfully downloaded 'plug.vim'."
   endif
 endif
 
