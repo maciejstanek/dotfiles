@@ -1,6 +1,5 @@
 set shortmess=I
 set number
-set expandtab
 set shiftwidth=2
 set autoindent
 set smartindent
@@ -9,7 +8,6 @@ set nowrap
 set tabstop=2
 set softtabstop=0
 set expandtab
-set shiftwidth=2
 set smarttab
 set guitablabel=%t\ %M
 set showbreak=\ ...
@@ -17,9 +15,13 @@ set cursorline
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set sm
 set ls=2
+set t_Co=256
+set colorcolumn=80
 syntax enable 
-autocmd FileType diff map <F3> :next<CR>
-autocmd FileType diff map <S-F3> :prev<CR>
+
+setlocal spell spelllang=en_us
+set nospell
+
 autocmd FileType tex set wrap
 autocmd FileType tex setlocal spell spelllang=en,pl
 
@@ -34,6 +36,8 @@ autocmd BufNewFile,BufRead *.c set foldmethod=indent foldlevel=99
 autocmd BufNewFile,BufRead *.hpp set foldmethod=indent foldlevel=99
 autocmd BufNewFile,BufRead *.hxx set foldmethod=indent foldlevel=99
 autocmd BufNewFile,BufRead *.h set foldmethod=indent foldlevel=99
+au BufNewFile,BufRead *.launch set filetype=xml
+au BufNewFile,BufRead *.do set filetype=tcl
 set bs=2
 set hlsearch
 syntax on
@@ -53,18 +57,14 @@ function! TestCurrentFile()
   execute "!" . TestCommand
 endfunction
 
-setlocal spell spelllang=en_us
-set nospell
-
-au BufNewFile,BufRead *.launch set filetype=xml
-au BufNewFile,BufRead *.do set filetype=tcl
-
 map <F1> <nop>
 map <F1><F1> :set list! list?<CR>
 map <F1><F2> :set number! number?<CR>
 map <F1><F3> :set wrap! wrap?<CR>
 map <F1><F4> :set spell! spell?<CR>
 map <F2><F2> :bd<CR>
+autocmd FileType diff map <F3> :next<CR>
+autocmd FileType diff map <S-F3> :prev<CR>
 map <F4> :set foldmethod=marker foldmethod?<CR>
 map <F5><F4> :!cd build && cmake ..<CR>
 map <F5><F5> :!cd build && cmake --build .<CR>
@@ -113,7 +113,6 @@ call plug#end()
 
 colorscheme jellybeans
 set colorcolumn=80,100,120
-set t_Co=256
 highlight Visual cterm=reverse ctermbg=NONE
 highlight ColorColumn ctermbg=234 guibg=#1c1c1c
 
@@ -216,5 +215,3 @@ nmap <Leader>l <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""
