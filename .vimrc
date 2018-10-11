@@ -1,3 +1,43 @@
+let plug_path = "~/.vim/autoload/plug.vim" 
+let is_fresh_plug = 0
+if !filereadable(expand(plug_path))
+  echo "Missing 'plug.vim'. Attempting to download it."
+  let plug_url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" 
+  let plug_cmd = "curl -fLo " . plug_path . " --create-dirs " . plug_url
+  let plug_result = system(plug_cmd)
+  if v:shell_error
+    echo "Executing 'curl' failed. Is 'curl' installed?"
+    exit
+  else
+    echo "Successfully downloaded 'plug.vim'. Sourcing it."
+    let is_fresh_plug = 1
+  endif
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'Shougo/neocomplete.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'elzr/vim-json'
+Plug 'itchyny/lightline.vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'pboettch/vim-cmake-syntax'
+Plug 'scrooloose/nerdtree'
+Plug 'sickill/vim-monokai'
+Plug 'sirtaj/vim-openscad'
+Plug 'taku-o/vim-toggle'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/ifdef-highlighting'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'chrisbra/Colorizer'
+call plug#end()
+
+if is_fresh_plug
+  echo "Run 'PlugInstall' to download plugins."
+  finish
+endif
+
 set shortmess=I
 set number
 set shiftwidth=2
@@ -77,39 +117,6 @@ map <F8> :set syn=verilog<CR>
 map <F9> :set syn=cpp<CR>
 map <F10> :set syn=tcl<CR>
 map <F11> :set syn=json<CR>
-
-let plug_path = "~/.vim/autoload/plug.vim" 
-if !filereadable(expand(plug_path))
-  echo "Missing 'plug.vim'. Attempting to download it."
-  let plug_url = "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" 
-  let plug_cmd = "curl -fLo " . plug_path . " --create-dirs " . plug_url
-  let plug_result = system(plug_cmd)
-  if v:shell_error
-    echo "Executing 'curl' failed. Is 'curl' installed?"
-    exit
-  else
-    echo "Successfully downloaded 'plug.vim'."
-  endif
-endif
-
-call plug#begin('~/.vim/plugged')
-Plug 'Shougo/neocomplete.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'elzr/vim-json'
-Plug 'itchyny/lightline.vim'
-Plug 'nanotech/jellybeans.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'pboettch/vim-cmake-syntax'
-Plug 'scrooloose/nerdtree'
-Plug 'sickill/vim-monokai'
-Plug 'sirtaj/vim-openscad'
-Plug 'taku-o/vim-toggle'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/ifdef-highlighting'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'chrisbra/Colorizer'
-call plug#end()
 
 colorscheme jellybeans
 set colorcolumn=80,100,120
