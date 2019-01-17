@@ -57,7 +57,9 @@ set sm
 set ls=2
 set t_Co=256
 set colorcolumn=80
-syntax enable 
+syntax enable
+set mouse=
+set noundofile
 
 setlocal spell spelllang=en_us
 set nospell
