@@ -151,3 +151,5 @@ export TIME_STYLE=long-iso
 # set -o vi
 # bind -m vi-insert "\C-l":clear-screen
 shopt -s autocd
+
+alias g=git
